@@ -1,8 +1,7 @@
-ul.contact-list {
+ul.list {
     margin: 30px;
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;
     gap: 20px;
 }
-  
