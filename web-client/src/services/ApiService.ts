@@ -1,8 +1,9 @@
 import Contact from '../models/Contact';
 
 export interface IApiService {
-    getAllContacts: ()  => Promise<Contact[]>;
-    createContact: (contact: Contact) => Promise<void>;
+    getAllContacts: () => Promise<Contact[]>;
+    createContact: (contact: Contact) => Promise<Contact>;
+    deleteContact: (contact: Contact) => Promise<void>;
 }
 
 export class ApiService implements IApiService {
@@ -12,22 +13,28 @@ export class ApiService implements IApiService {
         this.baseUrl = baseUrl;
     }
 
-    async getAllContacts() : Promise<Contact[]> {
-
+    async getAllContacts(): Promise<Contact[]> {
         const response = await fetch(`${this.baseUrl}/api/contacts`);
         return response.json();
-
     }
-    async createContact(contact: Contact) : Promise<void> {
-        const t = JSON.stringify(contact);
-        console.log(t);
-        await fetch(`${this.baseUrl}/api/contacts`, {
+    async createContact(contact: Contact): Promise<Contact> {
+        const response = await fetch(`${this.baseUrl}/api/contacts`, {
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
+                Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: t
+            body: JSON.stringify(contact)
+        });
+        return response.json();
+    }
+    async deleteContact(contact: Contact): Promise<void> {
+        await fetch(`${this.baseUrl}/api/contacts/${contact.id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
         });
     }
 }
