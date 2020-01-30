@@ -51,7 +51,7 @@ namespace ContactList.WebApi
 
             app.UseAuthorization();
 
-            app.UseCors(option => option.AllowAnyOrigin().AllowAnyHeader());
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {

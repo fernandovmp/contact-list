@@ -31,5 +31,9 @@ namespace ContactList.WebApi.Repositories
             await _contacts.InsertOneAsync(contact);
             return contact;
         }
+
+        public async Task DeleteContactAsync(string id) =>
+            await _contacts.DeleteOneAsync(contact => contact.Id == id);
+
     }
 }

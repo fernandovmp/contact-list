@@ -40,5 +40,12 @@ namespace ContactList.WebApi.Controllers
             await _contactRepository.CreateAsync(contact);
             return CreatedAtRoute(nameof(GetContact), new { id = contact.Id }, contact);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteContact(string id)
+        {
+            await _contactRepository.DeleteContactAsync(id);
+            return NoContent();
+        }
     }
 }
