@@ -30,11 +30,7 @@ export class ApiService implements IApiService {
     }
     async deleteContact(contact: Contact): Promise<void> {
         await fetch(`${this.baseUrl}/api/contacts/${contact.id}`, {
-            method: 'DELETE',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            }
+            method: 'DELETE'
         });
     }
 }
