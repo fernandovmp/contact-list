@@ -12,10 +12,16 @@ div.contact-card {
 
 div.contact-card:hover {
     background-color: #292929;
+    cursor: pointer;
 }
 
 
-div.contact-card .name {
+div.contact-card .contact-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.contact-card .contact-header .name {
     font-size: medium;
     color: #fff;
 }
