@@ -29,7 +29,7 @@ const ContactForm: React.FC<propsType> = ({ onSubmit }) => {
                 <input value={email} onChange={e => setEmail(e.target.value)} />
             </label>
             <label>
-                Phone:
+                Telefone:
                 <input value={phone} onChange={e => setPhone(e.target.value)} />
             </label>
             <button type="submit">CADASTRAR</button>
