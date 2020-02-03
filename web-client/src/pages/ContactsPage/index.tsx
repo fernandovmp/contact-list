@@ -39,7 +39,7 @@ const ContactPage: React.FC<propsType> = ({ apiService }) => {
 
     return (
         <div className="contacts-page">
-            <ContactForm onSubmit={addContact} />
+            <ContactForm onSubmit={addContact} submitButtonText="CADASTRAR" />
             <main>
                 <List
                     source={contacts}
