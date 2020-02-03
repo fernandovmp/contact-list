@@ -1,0 +1,16 @@
+.contacts-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.contacts-page form {
+    margin-right: 20px;
+    flex: 1;
+}
+
+.contacts-page main {
+    flex: 2;
+}
