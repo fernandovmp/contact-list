@@ -30,7 +30,7 @@ namespace ContactList.WebApi.Controllers
         public async Task<ActionResult<Contact>> GetContact(string id)
         {
             Contact contact = await _contactRepository.GetContactAsync(id);
-            if(contact is null) return NotFound();
+            if (contact is null) return NotFound();
             return Ok(contact);
         }
 
@@ -39,6 +39,13 @@ namespace ContactList.WebApi.Controllers
         {
             await _contactRepository.CreateAsync(contact);
             return CreatedAtRoute(nameof(GetContact), new { id = contact.Id }, contact);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Contact>> ReplaceContact(string id, Contact contact)
+        {
+            await _contactRepository.ReplaceAsync(id, contact);
+            return Ok(contact);
         }
 
         [HttpDelete("{id}")]

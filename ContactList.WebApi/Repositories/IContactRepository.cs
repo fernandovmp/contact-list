@@ -9,6 +9,7 @@ namespace ContactList.WebApi.Repositories
         Task<List<Contact>> GetAllAsync();
         Task<Contact> GetContactAsync(string id);
         Task<Contact> CreateAsync(Contact contact);
+        Task<Contact> ReplaceAsync(string id, Contact contact);
         Task DeleteContactAsync(string id);
     }
 }

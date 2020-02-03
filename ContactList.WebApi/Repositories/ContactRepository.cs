@@ -32,6 +32,12 @@ namespace ContactList.WebApi.Repositories
             return contact;
         }
 
+        public async Task<Contact> ReplaceAsync(string id, Contact contact)
+        {
+            await _contacts.ReplaceOneAsync(c => c.Id == id, contact);
+            return contact;
+        }
+
         public async Task DeleteContactAsync(string id) =>
             await _contacts.DeleteOneAsync(contact => contact.Id == id);
 
